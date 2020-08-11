@@ -1,0 +1,13 @@
+<h1>Edit <%= @recipe.name.titleize %></h1>
+
+<br>
+
+<%= form_for @recipe do |f| %>
+  <%= render partial: 'form_fields', locals: { f: f } %>
+
+  <div class='form_field'>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
